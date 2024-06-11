@@ -9,8 +9,8 @@ import pageObjects.LoginPage;
 import pageObjects.MenuPage;
 import selenium.utils.BaseTest;
 
-public class LoginTest extends BaseTest {
-	
+public class LoginTest extends BaseTest{
+
 	String USER = PropertiesFileProcessor.readPropertiesFile("user", "credentials.properties");
 	String PASS = PropertiesFileProcessor.readPropertiesFile("pass", "credentials.properties");
 	
@@ -22,22 +22,22 @@ public class LoginTest extends BaseTest {
 		
 		//menu.navigateTo(menu.loginLink);
 		menu.click(menu.loginLink);
-		login.loginInApp(USER, PASS);		
+		login.loginInApp(USER, PASS);	
 		assertTrue(login.checkMsgIsDisplayed(login.successLoginMsg));
 		//login.logoutFromApp();
 		login.click(login.logoutBtn);
 	}
 	
 	@Test(priority=2)
-	public void invalidLoginTest() {
+	public void invalidloginTest() {
 		
 		MenuPage menu = new MenuPage(driver);
 		LoginPage login = new LoginPage(driver);
 		
 		//menu.navigateTo(menu.loginLink);
 		menu.click(menu.loginLink);
-		login.loginInApp(USER, "123123");		
+		login.loginInApp(USER, "12312313");	
 		assertTrue(login.checkMsgIsDisplayed(login.errorLoginMsg));
 	}
-
+	
 }

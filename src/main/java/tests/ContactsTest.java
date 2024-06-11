@@ -4,20 +4,23 @@ import org.testng.annotations.Test;
 
 import selenium.utils.BaseTest;
 
-public class ContactsTest extends BaseTest{
-	
+public class ContactsTest extends BaseTest {
+
 	@Test
 	public void sendMessageFromContactFormTest() {
-		
+	
 		app.click(app.menu.contactsLink);
-		
-		app.sendKeys(app.contacts.nameField, "Albus Dumbledore");
-		app.sendKeys(app.contacts.emailField, "principal@hogwards.com");
-		app.sendKeys(app.contacts.subjectField, "Admission");
-		app.sendKeys(app.contacts.msgField, "do you want to be a wizard? join the magic school! ");
+		//1
+		app.sendKeys(app.contacts.nameField, "Harry Potter");
+		app.sendKeys(app.contacts.emailField, "harry@howgarths.com");
+		app.sendKeys(app.contacts.subjectField, "Addmision");
+		app.sendKeys(app.contacts.msgField, "Can I join?");
 		app.click(app.contacts.submitBtn);
 		
-		
+		//2
+		app.contacts.sendMessage("Ion", "ion@ion.com", "Salut", "Ce mai faci?");
+	
 	}
-
+	
+	
 }

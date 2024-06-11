@@ -9,33 +9,35 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumWrappers extends BaseTest{
+
 	
-	//WebElement element = driver.findElement(locator);
+	
+	//Weblement element = driver.findElement(locator);
 	//element.click();
+	
 	
 	public void click(By locator) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			WebDriverWait wait = new WebDriverWait(driver, Duration. ofSeconds(5));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 			WebElement element = driver.findElement(locator);
 			element.click();
+			
 		}catch(NoSuchElementException e) {
 			
+			
 		}
-		
 		
 		//driver.findElement(locator).click();
 		
 	}
 	
 	public void sendKeys(By locator, String text) {
+		
 		driver.findElement(locator).sendKeys(text);
+		
 	}
 	
 	
-	
-	
-	
-
 }
