@@ -18,7 +18,7 @@ public class BaseTest {
 		//FirefoxDriver()
 		//EdgeDriver()
 		//System.set.property("webdriver.chrome.driver", "path to chromedriver.exe");
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://keybooks.ro/");

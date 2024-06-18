@@ -8,16 +8,16 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 public class PropertiesFileProcessor {
-	
+
 	
 	public static String readPropertiesFile(String key, String file) {
 		
-		try(InputStream inputStream = new FileInputStream(file)){
+		try(InputStream inputStream =  new FileInputStream(file)){
 			
-			Properties propFile = new Properties();
-			propFile.load(inputStream);
+			Properties propfile = new Properties();
+			propfile.load(inputStream);
 			
-			return propFile.getProperty(key);			
+			return propfile.getProperty(key);
 			
 		}catch(IOException e) {
 			System.out.println("Cannot read properties file");
@@ -25,6 +25,7 @@ public class PropertiesFileProcessor {
 		return key;
 		
 	}
-
-
+	
+	
+	
 }

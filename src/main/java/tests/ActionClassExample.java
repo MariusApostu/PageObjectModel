@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 
 import selenium.utils.BaseTest;
 
-public class ActionClassExample extends BaseTest{
-	
+public class ActionClassExample  extends BaseTest{
+
 	//@Test
 	public void hoverElementTest() throws InterruptedException {
 		
@@ -20,16 +20,20 @@ public class ActionClassExample extends BaseTest{
 		app.hoverElement(app.menu.blogSubMenuClassic);
 		Thread.sleep(3000);
 		app.click(app.menu.blogSubMenuClassic);
+		Thread.sleep(3000);
 		app.hoverElement(app.menu.aboutLink);
-		
 	}
+	
+	
 	//@Test
 	public void sendKeysTest() {
+		
 		app.click(app.menu.contactsLink);
 		
-		Keys ctrl = Platform.getCurrent().is(Platform.WINDOWS) ? Keys.CONTROL : Keys.COMMAND;
+		Keys ctrl =Platform.getCurrent().is(Platform.WINDOWS) ? Keys.CONTROL : Keys.COMMAND;
 		
-		Actions action = new Actions (driver);
+		
+		Actions action =  new Actions(driver);
 		WebElement nameField = app.getWebElement(app.contacts.nameField);
 		
 		action
@@ -48,27 +52,46 @@ public class ActionClassExample extends BaseTest{
 				.sendKeys("v")
 				.keyUp(ctrl)
 		.perform();
+		
 	}
 	
-	@Test
+	//@Test
 	public void sendMessageForm() {
 		
 		app.click(app.menu.contactsLink);
-		Keys ctrl = Platform.getCurrent().is(Platform.WINDOWS) ? Keys.CONTROL : Keys.COMMAND;		
-		Actions action = new Actions (driver);
+		Actions action =  new Actions(driver);
 		WebElement nameField = app.getWebElement(app.contacts.nameField);
 		
 		action
-		.sendKeys(nameField, "this is a placeholder text")
-		.pause(Duration.ofMillis(2000))
-		.sendKeys(Keys.TAB, "email@email.com")
-		.pause(Duration.ofMillis(2000))
-		.sendKeys(Keys.TAB, "My subject")
-		.pause(Duration.ofMillis(2000))
-		.sendKeys(Keys.TAB, "super mesaj")
-		.pause(Duration.ofMillis(2000))
-		.sendKeys(Keys.TAB, Keys.ENTER)
-	.perform();
+			.sendKeys(nameField, "Test")
+			.pause(Duration.ofMillis(2000))
+			.sendKeys(Keys.TAB, "email@email.com")
+			.pause(Duration.ofMillis(2000))
+			.sendKeys(Keys.TAB, "My subject")
+			.pause(Duration.ofMillis(2000))
+			.sendKeys(Keys.TAB, "Super mesaj!")
+			.pause(Duration.ofMillis(2000))
+			.sendKeys(Keys.TAB, Keys.ENTER)
+		.perform();
 	}
-
+	
+	@Test
+	public void dragAndDropExample() {
+		
+		
+		app.click(app.menu.shopLink);
+	
+		
+		Actions action = new Actions(driver);
+		action.scrollByAmount(0, 600).perform();
+		
+		app.hoverElement(app.shop.filterSliderInitialPosition);
+		app.dragAndDrop(app.shop.filterSliderInitialPosition, 100, 0);
+		app.dragAndDrop(app.shop.filterSliderFinalPosition, -100, 0);
+		
+		
+	}
+	
+	
+	
 }
