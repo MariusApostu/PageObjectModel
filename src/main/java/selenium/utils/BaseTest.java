@@ -13,7 +13,7 @@ public class BaseTest {
 	public static WebDriver driver;
 	public BasePage app;
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void setup() {
 		//FirefoxDriver()
 		//EdgeDriver()
@@ -27,7 +27,7 @@ public class BaseTest {
 		
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() throws InterruptedException {
 		Thread.sleep(5000);//bad practice
 		//driver.close();//inchide tab-ul curent
